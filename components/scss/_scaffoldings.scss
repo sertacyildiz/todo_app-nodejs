@@ -1,0 +1,415 @@
+
+html{
+  font-size : $baseFontSize;
+  font-family: $baseFontFamily;
+  height : 100%;
+  width : 100%;
+
+  -webkit-overflow-scrolling: touch;
+
+  @media #{$mobile}{
+    overflow-x: hidden;
+  }
+  @media #{$tablet}{
+    overflow-x: hidden;
+  }
+}
+
+body{
+  font-size : $baseFontSize;
+  font-family: $baseFontFamily;
+  -webkit-tap-highlight-color: transparent;
+  width: 100%;
+  overflow-x: hidden;
+  color: $baseFontColor;
+
+}
+
+body > div {
+  height: 100%;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+tbody{
+  width: inherit;
+  height: inherit;
+  color: white;
+  font-size: 14px;
+}
+tr{
+  float:left;
+  vertical-align: top;
+}
+
+td{
+  vertical-align: top;
+}
+
+
+h1,h2,h3,h4,h5,h6{
+  //color: $baseHeaderColor;
+  color: white;
+}
+
+p{
+  float:left;
+
+}
+
+a,button
+{
+  @include transition(all,.4s);
+  cursor: pointer;
+}
+
+a:hover, a:focus{
+  text-decoration: none;
+}
+/* DRAG & DROP */
+ol{
+
+  list-style-type:none;
+  float:left;
+  padding: 0;
+
+  li{
+    list-style-type:none;
+  }
+}
+
+[draggable] {
+
+  @include user-select(none);
+
+  //-webkit-touch-callout: none; /* iOS Safari */
+  //-webkit-user-select: none;   /* Chrome/Safari/Opera */
+  //-khtml-user-select: none;    /* Konqueror */
+  //-moz-user-select: none;      /* Firefox */
+  //-ms-user-select: none;       /* IE/Edge */
+  //user-select: none;           /* non-prefixed version, currently not supported by any browser */
+
+  /* Required to make elements draggable in old WebKit */
+  -webkit-user-drag: element;
+  -khtml-user-drag: element;
+
+}
+
+/* drop target state */
+[data-draggable="target"][aria-dropeffect="move"]
+{
+  //background-color: rgba(40,40,40, .05);
+}
+
+/* drop target focus and dragover state */
+[data-draggable="target"][aria-dropeffect="move"]:focus,
+[data-draggable="target"][aria-dropeffect="move"].dragover,
+[data-draggable="target"].dragover
+{
+  outline:none;
+  box-shadow:0 0 8px 3px rgba(255,255,255,.9);
+}
+
+[data-draggable="item"]:focus
+{
+  outline:none;
+  box-shadow:0 0 0 2px #68b, inset 0 0 0 1px #ddd;
+}
+
+//[data-draggable="target"][aria-dropeffect="move"].dragover [data-draggable="item"]
+//{
+//  height: 32px;
+//  overflow: hidden;
+//}
+
+
+.ghost {
+  opacity: .4;
+}
+
+
+/***** DnD *******/
+
+nav ul ul {
+  display: none;
+}
+
+nav ul li:hover > ul {
+  display: block;
+}
+
+.centerv {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.centerh {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+
+.centervrel {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.centerhrel {
+  position: relative;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.centerrel{
+  position: relative;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+
+.centeruprel{
+  position: relative;
+  top: 50%;
+  left: 50%;
+  @include  transform( translate(-50%, -100%) );
+}
+
+.img-responsive{
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin : 0 auto;
+
+  &.fw{
+    width: 100%;
+  }
+}
+
+.flexbox{
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+.flexbox_container_v {
+
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+
+  align-items: center;
+
+  flex-direction: column;
+
+  justify-content:center;
+}
+
+.flexbox_container_h {
+
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+
+  align-items: center;
+
+  flex-direction: row;
+
+  justify-content:center;
+}
+
+.flexbox_ordered_h{
+
+  flex-direction: row;
+
+  justify-content: space-between;
+}
+
+.flexbox_ordered_v{
+
+  flex-direction: column;
+
+  justify-content: space-between;
+}
+
+.flexbox-end{
+  justify-content: flex-end
+}
+
+.fright{
+  float: right !important;
+}
+
+.fullwidth{
+  width: 100%;
+  position: relative;
+  float:left;
+  padding:5px 2%;
+}
+
+input{
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.textEditInput{
+  background: transparent;
+  border: none;
+  outline: none;
+  float: left;
+  text-align: center;
+}
+
+.form-control::-webkit-input-placeholder { color: #CCC; }
+.form-control:-moz-placeholder { color: #CCC; }
+.form-control::-moz-placeholder { color: #CCC; }
+.form-control:-ms-input-placeholder { color: #CCC; }
+
+.checkbox {
+  padding-left: 20px; }
+.checkbox label {
+  display: inline-block;
+  position: relative;
+  padding-left: 5px;
+  outline: none;
+  font-weight: bold;
+
+}
+.checkbox label::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  left: 0;
+  margin-left: -20px;
+  border: 1px solid #cccccc;
+  border-radius: 3px;
+  background-color: #fff;
+  -webkit-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+  -o-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+  transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+.checkbox label::after {
+  display: inline-block;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 0;
+  top: 0;
+  margin-left: -20px;
+  padding-left: 3px;
+  padding-top: 1px;
+  font-size: 11px;
+  color: #555555;
+}
+.checkbox input[type="checkbox"] {
+  opacity: 0;
+  z-index: 1; }
+.checkbox input[type="checkbox"]:focus + label::before {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px; }
+.checkbox input[type="checkbox"]:checked + label::after {
+  font-family: 'FontAwesome';
+  content: "\f00c"; }
+.checkbox input[type="checkbox"]:disabled + label {
+  opacity: 0.65; }
+.checkbox input[type="checkbox"]:disabled + label::before {
+  background-color: #eeeeee;
+  cursor: not-allowed; }
+.checkbox.checkbox-circle label::before {
+  border-radius: 50%; }
+.checkbox.checkbox-inline {
+  margin-top: 0; }
+.checkbox.checkbox-single label {
+  height: 17px; }
+
+.checkbox-primary input[type="checkbox"]:checked + label::before {
+  background-color: #428bca;
+  border-color: #428bca; }
+.checkbox-primary input[type="checkbox"]:checked + label::after {
+  color: #fff; }
+
+.checkbox-danger input[type="checkbox"]:checked + label::before {
+  background-color: #d9534f;
+  border-color: #d9534f; }
+.checkbox-danger input[type="checkbox"]:checked + label::after {
+  color: #fff; }
+
+.checkbox-info input[type="checkbox"]:checked + label::before {
+  background-color: #5bc0de;
+  border-color: #5bc0de; }
+.checkbox-info input[type="checkbox"]:checked + label::after {
+  color: #fff; }
+
+.checkbox-warning input[type="checkbox"]:checked + label::before {
+  background-color: #f0ad4e;
+  border-color: #f0ad4e; }
+.checkbox-warning input[type="checkbox"]:checked + label::after {
+  color: #fff; }
+
+.checkbox-success input[type="checkbox"]:checked + label::before {
+  background-color: #5cb85c;
+  border-color: #5cb85c; }
+.checkbox-success input[type="checkbox"]:checked + label::after {
+  color: #fff; }
+
+
+
+
+//::-webkit-scrollbar {
+// height: 14px;
+// width: 0; }
+//
+//::-webkit-scrollbar:hover {
+//  height: 16px; }
+//
+//
+//::-webkit-scrollbar-thumb:enabled {
+//  @include linearBackground6();
+//  padding: 0 6px;
+//  border-radius: 10px;
+//}
+//::-webkit-scrollbar-thumb:active {
+//  //background: rgba(250,0,0,0.4);
+//}
+//::-webkit-scrollbar-thumb:window-inactive {
+//  //background: rgba(5,5,5,.2);
+//}

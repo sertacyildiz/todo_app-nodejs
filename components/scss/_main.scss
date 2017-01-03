@@ -1,0 +1,515 @@
+
+#main{
+  width:100vw;
+  height:100vh;
+  float:left;
+  @include background( linear-gradient($mainBackColorG1, $mainBackColorG2) );
+
+  @include selection {
+    background-color: #888;
+  }
+
+  #login{
+    width:30%;
+    height:30%;
+    color: $baseFontColor;
+    //opacity: 0;  // Turn on for animation
+
+    h1{
+      font-size: 4vh;
+      text-align: center;
+      font-weight: bold;
+      color:  $baseHeaderColor;
+    }
+    .loginInputs{
+      width:auto;
+      height:auto;
+      border-radius: 4px;
+
+      -webkit-box-shadow: 0 0 13px 3px rgba(45, 45, 45, 0.2);
+      -moz-box-shadow: 0 0 13px 3px rgba(45, 45, 45, 0.2);
+      box-shadow: 0 0 13px 3px rgba(45, 45, 45, 0.2);
+
+      //@include background( linear-gradient($mainBoxColorG1, $mainBoxColorG2) );
+      @include linearBackground1;
+
+      input{
+        width:80%;
+        height:20%;
+        color: white;
+        border-color: white;
+        margin:1% auto;
+        padding:1% 2%;
+        font-size: large;
+        background: shade(transparent, 0%);
+
+      }
+      input:hover, input:active, input:focus{
+        background: shade(transparent, 10%);
+      }
+      button {
+        width:80%;
+        margin-top: 1%;
+
+      }
+      .fullLine{
+        width: 80%;
+
+        label{
+          font-size: 1.4vh;
+        }
+
+        i{
+          padding: 3px 4px;
+        }
+
+      }
+
+      a{
+        margin-top:10px;
+        margin-bottom:10px;
+        color: $baseAnchorColor;
+        font-size: 1.4vh;
+        font-weight:bold;
+      }
+      a:hover i, a:focus i{
+        color: white;
+      }
+
+    }
+  }
+
+  #welcome{
+
+    width: 100%;
+    height: 99%;
+    white-space: nowrap;
+    padding-top: 51px;
+    overflow-y: hidden;
+    overflow-x: auto;
+
+    &::-webkit-scrollbar {
+      height: 1.7%;
+      width: 1%;
+      background: rgba(10, 10, 10, .15);
+    }
+
+    //&::-webkit-scrollbar:hover {
+    //  height: 16px; }
+
+    &::-webkit-scrollbar-thumb:enabled {
+      @include linearBackground6();
+      border-radius: 10px;
+    }
+    &::-webkit-scrollbar-thumb:active {
+      //background: rgba(250,0,0,0.4);
+    }
+    &::-webkit-scrollbar-thumb:window-inactive {
+      //background: rgba(5,5,5,.2);
+    }
+
+    nav{
+      width:100%;
+      position: absolute;
+      top:0;
+      left:0;
+      color: white;
+      background: $navBackColor;
+
+      a{
+        color:white;
+        font-size:14px;
+
+        &.navbar-brand {
+          font-size:24px;
+        }
+
+        &:hover{
+          background: $welcomeHoverColor;
+        }
+      }
+
+      .navbar-header{
+        margin-right: 3%;
+      }
+
+      .dropdown-menu{
+        @include background(darken($navBackColor, 5% ));
+      }
+
+    }
+
+    .pagetitle h4{
+      color: $navBackColor;
+      font-weight:bold;
+    }
+
+    .boards{
+      position: relative;
+      top: 0;
+      left: 0;
+      width: inherit;
+      height: inherit;
+      padding: 1%;
+
+      @include display("flex");
+      flex-direction: row;
+      flex-wrap:wrap;
+      align-content: flex-start;
+
+      .board{
+        width: 18%;
+        height:19%;
+        margin:1%;
+        padding:1%;
+        position: relative;
+        float:left;
+        color: white;
+        text-align: center;
+
+        -webkit-border-radius:4px;
+        -moz-border-radius:4px;
+        border-radius:4px;
+
+        @include transition(all .4s ease-out);
+        @include linearBackground2();
+
+        .boardEdit{
+          width:100%;
+          float:left;
+
+          a{
+            font-size:1.6vw;
+            color: white;
+            opacity: 0;
+            @include transition(all .4s ease-out);
+          }
+
+          &.remove{
+            a{
+              opacity: 1;
+            }
+          }
+        }
+
+        .boardTitle{
+          width:100%;
+          float:left;
+
+          h3{
+            font-size: 1.3vw;
+            padding: 4px;
+            width: 100%;
+            float: left;
+            margin: 10px 0 0 0;
+            cursor: pointer;
+          }
+
+          input{
+            margin: 10px 0 0 0;
+            font-size: 1.4vw;
+            width: 100%;
+            float: left;
+          }
+        }
+
+        &.new{
+          @include linearBackground1();
+
+          a{
+            display: block;
+            color:white;
+            font-size:5vh;
+            cursor: pointer;
+            @include transition(all .3s ease-in-out);
+          }
+
+          input{
+            position: relative;
+            float:left;
+            width:100%;
+            @include transition(all .3s ease-in-out);
+            opacity: 0;
+            @include transform(scaleX(0.1));
+            @include transform-origin(center center);
+          }
+        }
+
+      &:hover a{
+
+        opacity: 1;
+      }
+      }
+    }
+
+    .cards{
+      position: relative;
+      top: 0;
+      left: 0;
+      /* width: auto; */
+      min-width: 100%;
+      height: calc(100% + 21px);
+      /* display: inline; */
+      padding: 1%;
+
+      tbody{
+
+      }
+
+      .cardsContainer{
+
+
+      }
+
+      .card{
+        width: 350px;
+        height: auto;
+        max-height: calc(100vh - 90px);
+        position: relative;
+        margin: 10px 2px 10px 10px;
+        padding: 10px;
+        overflow: auto;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        display: inline-flex;
+        box-sizing: border-box;
+        vertical-align: top;
+
+        -webkit-border-radius:4px;
+        -moz-border-radius:4px;
+        border-radius:4px;
+
+        @include transition(all .3s ease-out);
+        @include linearBackground4();
+
+        &:last-child{
+          margin-right:10px;
+        }
+
+        &.new{
+          width:250px;
+
+          @include linearBackground3();
+
+          &:hover{
+            cursor: pointer;
+          }
+
+          i{
+            //width: 100%;
+            float:left;
+            font-size:xx-large;
+          }
+          input{
+            /* background: transparent; */
+            position: relative;
+            float:left;
+            margin: 0 0 0 5px;
+            width: 90%;
+            font-size: 14px;
+
+            @include transition(all .3s ease-in-out);
+            opacity: 0;
+            @include transform(scaleX(0.1));
+            @include transform-origin(left top);
+          }
+        }
+
+        a{
+          width: 8%;
+          font-size: x-large;
+          color:white;
+          margin:0 1%;
+          padding:1px;
+          float:left;
+        }
+        h4{
+          padding-left:3% !important;
+          width: 100%;
+          font-size: 16px;
+          float:left;
+        }
+
+        input{
+          width: 100%;
+          font-size: 16px;
+          float:left;
+          text-align: left;
+          padding: 2.1% 10px;
+        }
+
+        .cardHeader{
+          width:100%;
+          float:left;
+          opacity: 1;
+
+          //&:hover{
+          //  cursor: -webkit-grab;
+          //  cursor: -moz-grab;
+          //  cursor: grab;
+          //}
+          //
+          //&:active .card , &:focus .card{
+          //
+          //  cursor: -webkit-grabbing;
+          //  cursor: -moz-grabbing;
+          //  cursor: grabbing;
+          //  //@include transform(rotate(-3deg))
+          //}
+        }
+
+        .tasks{
+          width: 100%;
+          word-wrap: break-word;
+          overflow-wrap: break-word;
+          white-space: normal;
+          list-style: none;
+          float: left;
+          padding: 0;
+          margin: 0;
+
+          .task{
+            min-width: 100%;
+            padding: 5px;
+            border: 1px solid rgba(255,255,255,.2);
+            border-radius: 2px;
+            vertical-align: top;
+            margin: 5px 0;
+            float: left;
+            background: rgba(0, 0, 0, .1);
+            box-shadow: 2px 2px 1px -1px rgba(0,0,0,0.2);
+
+            .taskHead{
+
+              width: 100%;
+              float: left;
+              padding:2px;
+
+              a{
+                font-size: 15px;
+                float: left;
+                position: absolute;
+                background: rgba(0,0,0,0.4);
+                margin: -8px;
+                padding: 5px 6px;
+                display: none;
+
+                i{
+                  position: relative;
+                  left:0;
+                  top:0;
+                  float:left;
+                }
+              }
+            }
+
+            p{
+              padding:15px 4px 2px 4px ;
+              float:left;
+              font-size: 13px;
+            }
+
+            p.date{
+              padding: 0 2px;
+              margin: 0;
+              float:right;
+            }
+
+            &:hover{
+              //cursor: pointer;
+              cursor: -webkit-grab;
+              background: rgba(0, 0, 0, .11);
+            }
+
+            &:hover .taskHead a{
+              display: block;
+            }
+
+          }
+
+          h1,h2,h3,h4,h5,h6{
+            float:left;
+          }
+
+        }
+
+      }
+    }
+
+  }
+
+}
+
+.taskWindow{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  float: left;
+  z-index: 9999;
+  opacity:0;
+
+  @include transition(all .3s ease-in-out);
+  @include transform(scale(0.1));
+  @include transform-origin(center center);
+
+  .taskWindowBack{
+    //position: relative;
+    width: 100%;
+    height: 100%;
+    float: left;
+    background: rgba(0,0,0,.4);
+    z-index:11;
+    cursor: pointer;
+
+    i{
+      position: absolute;
+      top:0;
+      right:0;
+      float:right;
+      color:#C9D2CB;
+      font-size:3.6vw;
+      margin:10px;
+    }
+  }
+
+  .taskContent{
+    //position: relative;
+    width: 60%;
+    height:70%;
+    padding:1% 4%;
+    border-radius: 4px;
+    white-space: normal;
+    z-index:12;
+
+    @include linearBackground5;
+
+    input{
+      float:left;
+      margin:10px;
+    }
+
+    input[type = "text"]{
+      width:40%;
+
+    }
+
+    input[type = "date"]{
+      width:23%;
+    }
+
+    textarea{
+      width:70%;
+      height:60%;
+      margin:10px;
+      resize:none;
+    }
+
+    button{
+      float:right;
+      padding: 5px;
+      margin-left:10px;
+    }
+  }
+}
+
+

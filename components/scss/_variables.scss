@@ -1,0 +1,42 @@
+
+///// Defaults
+
+
+$colorBlack:        #000;
+$colorDarker:       #333;
+$colorDark:         #666;
+$colorLight:        #999;
+$colorLighter:      #EEE;
+
+$colorRed:          #BC1621;
+$colorLightRed:     #E5222f;
+$colorFadeRed:      #D9534F;
+
+$baseFontColor:     #343434;
+$baseHeaderColor:   #556270;
+$baseAnchorColor:   #252525;
+
+$mainBackColorG1:   #f7f0e3;
+$mainBackColorG2:   #eae3d5;
+
+$navBackColor:      #556270;
+
+$mainBoxColor:      #83AF9B;
+$secondBoxColor:    #C1867C;
+//$thirdBoxColor:     #FCD671;
+$thirdBoxColor:     #F4D788;
+$forthBoxColor:     #A6B8DD;
+$fifthBoxColor:     #C9D2CB;
+
+$welcomeHoverColor: #D18A79;
+
+
+$mobile:            'only screen and (max-width: 480px)';
+$tablet:            'only screen and (max-width: 1024px)';
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&subset=latin,latin-ext);
+
+$baseFontFamily: 'Open Sans','Helvetica','Arial', serif;
+
+$baseFontSize:      11px;
+

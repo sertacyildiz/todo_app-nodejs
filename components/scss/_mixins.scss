@@ -1,0 +1,58 @@
+// Linear Backgrounds
+
+@mixin linearBackground1() {
+
+  @include background( linear-gradient( darken($mainBoxColor, 7% ), lighten($mainBoxColor, 3% ) ) );
+
+  &:hover{
+    @include background( linear-gradient( darken($mainBoxColor, 7% ), lighten($mainBoxColor, 7% ) ) );
+  }
+}
+
+@mixin linearBackground2() {
+
+  @include background( linear-gradient( darken($secondBoxColor, 5% ), lighten($secondBoxColor, 3% )   ) );
+
+  &:hover{
+    @include background( linear-gradient( darken($secondBoxColor, 5% ), lighten($secondBoxColor, 7% )  ) );
+  }
+}
+
+@mixin linearBackground3() {
+
+  @include background( linear-gradient( darken($thirdBoxColor, 6% ), $thirdBoxColor ) );
+
+  &:hover{
+    @include background( linear-gradient( darken($thirdBoxColor, 6% ), lighten($thirdBoxColor, 3% )  ) );
+  }
+}
+
+@mixin linearBackground4() {
+
+  @include background( linear-gradient( darken($forthBoxColor, 6% ), $forthBoxColor  ) );
+
+  &:hover{
+    @include background( linear-gradient( darken($forthBoxColor, 6% ), lighten($forthBoxColor, 2% )  ) );
+  }
+}
+
+@mixin linearBackground5() {
+
+  @include background( linear-gradient( darken($fifthBoxColor, 7% ), $fifthBoxColor  ) );
+
+}
+
+@mixin linearBackground6() {
+
+  @include background( linear-gradient( $welcomeHoverColor, darken($welcomeHoverColor, 3% )  ) );
+
+  &:hover{
+    @include background( linear-gradient( $welcomeHoverColor, darken($welcomeHoverColor, 8% )  ) );
+  }
+}
+
+// Linear Backgrounds --- END
+
+//@mixin displayToggle(){
+//  if
+//}
